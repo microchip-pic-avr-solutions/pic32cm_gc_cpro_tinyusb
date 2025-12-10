@@ -1,0 +1,424 @@
+{
+    "importedFrom": "./",
+    "version": "1.6",
+    "configurations": [
+        {
+            "name": "pic32cm_gc_cpro",
+            "id": "conf1",
+            "device": "PIC32CM5112GC00100",
+            "imageType": "application",
+            "imagePath": "./out/pic32cm_gc_cpro_tinyusb/pic32cm_gc_cpro.elf",
+            "toolProperties": "pic32cm_gc_cpro-tool",
+            "packs": [
+                {
+                    "name": "PIC32CM-GC00_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.0.27"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.1.0"
+                }
+            ],
+            "fileSet": "pic32cm_gc_cpro files",
+            "toolchain": "pic32cm_gc_cpro-XC32",
+            "preBuildSteps": [],
+            "postBuildSteps": []
+        },
+        {
+            "name": "device_cdc_msc",
+            "id": "conf2",
+            "device": "PIC32CM5112GC00100",
+            "imageType": "application",
+            "imagePath": "./out/pic32cm_gc_cpro_tinyusb/device_cdc_msc.elf",
+            "toolProperties": "device_cdc_msc-tool",
+            "tool": "Curiosity/Starter Kits (PKOB4)",
+            "packs": [
+                {
+                    "name": "PIC32CM-GC00_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.0.27"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.1.0"
+                }
+            ],
+            "fileSet": "device_cdc_msc files",
+            "toolchain": "device_cdc_msc-XC32",
+            "preBuildSteps": [],
+            "postBuildSteps": []
+        },
+        {
+            "name": "device_hid_composite",
+            "id": "conf3",
+            "device": "PIC32CM5112GC00100",
+            "imageType": "application",
+            "imagePath": "./out/pic32cm_gc_cpro_tinyusb/device_hid_composite.elf",
+            "toolProperties": "device_hid_composite-tool",
+            "tool": "Curiosity/Starter Kits (PKOB4)",
+            "packs": [
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.1.0"
+                },
+                {
+                    "name": "PIC32CM-GC00_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.0.27"
+                }
+            ],
+            "fileSet": "device_hid_composite files",
+            "toolchain": "device_hid_composite-XC32",
+            "preBuildSteps": [],
+            "postBuildSteps": []
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "device_cdc_msc-XC32",
+            "extend": "XC32",
+            "type": "toolchain",
+            "properties": {
+                "compiler.extra-include-directories": [
+                    "../src",
+                    "../src/config/pic32cm_gc_cpro",
+                    "../src/examples/device/cdc_msc",
+                    "../src/packs/CMSIS",
+                    "../src/packs/CMSIS/CMSIS/Core/Include",
+                    "../src/packs/PIC32CM5112GC00100_DFP",
+                    "../src/third_party/tinyusb/src",
+                    "."
+                ],
+                "compiler.make-warnings-into-errors": true
+            }
+        },
+        {
+            "name": "device_hid_composite-XC32",
+            "extend": "XC32",
+            "type": "toolchain",
+            "properties": {
+                "compiler.extra-include-directories": [
+                    "../src",
+                    "../src/config/pic32cm_gc_cpro",
+                    "../src/packs/CMSIS",
+                    "../src/packs/CMSIS/CMSIS/Core/Include",
+                    "../src/packs/PIC32CM5112GC00100_DFP",
+                    "../src/examples/device/hid_composite",
+                    "../src/third_party/tinyusb/src",
+                    "."
+                ]
+            }
+        },
+        {
+            "name": "pic32cm_gc_cpro-XC32",
+            "extend": "XC32",
+            "type": "toolchain",
+            "properties": {
+                "compiler.preprocessor-macros": [
+                    "EXCLUDE_TINYUSB=1"
+                ],
+                "compiler.extra-include-directories": [
+                    "../src",
+                    "../src/config/pic32cm_gc_cpro",
+                    "../src/packs/CMSIS",
+                    "../src/packs/CMSIS/CMSIS/Core/Include",
+                    "../src/packs/PIC32CM5112GC00100_DFP",
+                    "."
+                ],
+                "compiler.make-warnings-into-errors": true
+            }
+        },
+        {
+            "name": "XC32",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc32@5.00",
+            "properties": {
+                "assembler.extra-include-directories-for-preprocessor": [
+                    "."
+                ],
+                "assembler.extra-include-directories-for-assembler": [
+                    "."
+                ],
+                "compiler.isolate-each-function": true,
+                "compiler.place-data-into-section": true,
+                "compiler.optimization-level": "-O1",
+                "compiler.tentative-definitions": "-fno-common",
+                "compiler.additional-warnings": true,
+                "compiler++.isolate-each-function": true,
+                "compiler++.optimization-level": "-O1",
+                "compiler++.extra-include-directories": [
+                    "../src",
+                    "../src/config/device_msc_cdc",
+                    "../src/config/pic32cm_gc_cpro",
+                    "../src/packs/CMSIS",
+                    "../src/packs/CMSIS/CMSIS/Core/Include",
+                    "../src/packs/PIC32CM5112GC00100_DFP",
+                    "."
+                ],
+                "linker.heap-size": "512",
+                "linker.remove-unused-sections": true,
+                "linker.extra-lib-directories": [
+                    "."
+                ],
+                "linker.no-device-startup-code": true,
+                "linker.fill-flash-options-inc-const": "1",
+                "linker.map-file": "",
+                "linker.report-memory-usage": false,
+                "compiler.oXC16gcc-errata": "",
+                "compiler.oXC16gcc-large-aggregate": false,
+                "compiler.oXC16gcc-mpa-lvl": "",
+                "compiler.oXC16gcc-name-text-sec": "",
+                "compiler.oXC16gcc-near-chars": false,
+                "compiler.oXC16gcc-no-isr-warn": false,
+                "compiler.oXC16gcc-sfr-warn": false,
+                "compiler.oXC16gcc-smar-io-lvl": "1",
+                "compiler.oXC16gcc-smart-io-fmt": "",
+                "compiler.toplevel-reordering": "",
+                "compiler++.toplevel-reordering": "",
+                "assembler.list-section-info": false,
+                "assembler.oXC16asm-extra-opts": "",
+                "archiver.additional-options-chop-files": false,
+                "linker.additional-options-use-response-files": false,
+                "linker.exclude-floating-point-library": false,
+                "linker.fill-flash-options-what": "0",
+                "linker.kseg-origin": "",
+                "linker.oXC16ld-force-link": false,
+                "linker.oXC16ld-no-smart-io": false,
+                "linker.oXC16ld-stackguard": "16",
+                "global.combine-sourcefiles": false,
+                "global.common-macros": "",
+                "global.dual-boot-partition": "0",
+                "global.generic-16-bit": false,
+                "global.legacy-libc": false,
+                "global.mpreserve-all": false,
+                "global.preserve-all": false,
+                "global.preserve-file": ""
+            }
+        },
+        {
+            "name": "device_cdc_msc-tool",
+            "extend": "tool",
+            "type": "tool",
+            "properties": {
+                "programmerToGoFilePath": "C:/microchip/USB/tusb_fork/pic32cm_gc_cpro_tinyusb/pic32cm_gc_cpro_tinyusb.X/debug/device_cdc_msc/pic32cm_gc_cpro_tinyusb_ptg"
+            }
+        },
+        {
+            "name": "device_hid_composite-tool",
+            "extend": "tool",
+            "type": "tool",
+            "properties": {
+                "programmerToGoFilePath": "C:/microchip/USB/tusb_fork/pic32cm_gc_cpro_tinyusb/pic32cm_gc_cpro_tinyusb.X/debug/device_hid_composite/pic32cm_gc_cpro_tinyusb_ptg"
+            }
+        },
+        {
+            "name": "pic32cm_gc_cpro-tool",
+            "extend": "tool",
+            "type": "tool",
+            "properties": {
+                "programmerToGoFilePath": "C:/microchip/USB/tusb_fork/pic32cm_gc_cpro_tinyusb/pic32cm_gc_cpro_tinyusb.X/debug/pic32cm_gc_cpro/pic32cm_gc_cpro_tinyusb_ptg"
+            }
+        },
+        {
+            "name": "tool",
+            "type": "tool",
+            "properties": {
+                "AutoSelectMemRanges": "auto",
+                "SecureSegment.SegmentProgramming": "FullChipProgramming",
+                "ToolFirmwareFilePath": "Press to browse for a specific firmware version",
+                "ToolFirmwareOption.UpdateOptions": "ToolFirmwareOption.UseLatest",
+                "ToolFirmwareToolPack": "Press to select which tool pack to use",
+                "arm.use_vtor": false,
+                "arm.vtor_adr": "exception_table",
+                "communication.interface": "swd",
+                "communication.interface.jtag": "2wire",
+                "communication.speed": "2.000",
+                "debugoptions.debug-startup": "Use system settings",
+                "debugoptions.reset-behaviour": "Use system settings",
+                "debugoptions.simultaneous.debug": false,
+                "debugoptions.useswbreakpoints": false,
+                "event.recorder.debugger.behavior": "Running",
+                "event.recorder.enabled": false,
+                "event.recorder.scvd.files": "",
+                "freeze.timers": false,
+                "lastid": "",
+                "loader.board_file": "${ProjectDir}/board.xboard",
+                "memories.aux": false,
+                "memories.bootflash": true,
+                "memories.configurationmemory": true,
+                "memories.configurationmemory2": true,
+                "memories.dataflash": true,
+                "memories.eeprom": true,
+                "memories.exclude.configurationmemory": true,
+                "memories.flashdata": true,
+                "memories.id": true,
+                "memories.instruction.ram.ranges": "${memories.instruction.ram.ranges}",
+                "memories.programmemory": true,
+                "memories.programmemory.ranges": "8000000-c07ffff",
+                "programoptions.donoteraseauxmem": false,
+                "programoptions.eraseb4program": true,
+                "programoptions.pgmentry.voltage": "low",
+                "programoptions.pgmspeed": "Med",
+                "programoptions.preservedataflash": false,
+                "programoptions.preservedataflash.ranges": "${memories.dataflash.default}",
+                "programoptions.preserveeeprom": false,
+                "programoptions.preserveeeprom.ranges": "",
+                "programoptions.preserveprogram.ranges": "",
+                "programoptions.preserveprogramrange": false,
+                "programoptions.preserveuserid": false,
+                "programoptions.program.otpconfig": false,
+                "programoptions.programcalmem": false,
+                "programoptions.programuserotp": false,
+                "programoptions.smart.program": "When debugging only",
+                "programoptions.testmodeentrymethod": "VDDFirst",
+                "script.has_reset": true,
+                "script.log_level": "1",
+                "script.reset_delay": "0",
+                "script.show_output": false,
+                "toolpack.updateoptions": "toolpack.updateoptions.uselatestoolpack",
+                "toolpack.updateoptions.packversion": "Press to select which tool pack to use",
+                "x.erase.key": "0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF",
+                "x.erase.type": "ChipEraseAll"
+            }
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "pic32cm_gc_cpro files",
+            "files": [
+                "Makefile",
+                "../src/*",
+                "../src/config/pic32cm_gc_cpro/bsp/*",
+                "../src/config/pic32cm_gc_cpro/driver/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/clock/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/eic/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/evsys/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/nvic/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/pm/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/port/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/sercom/usart/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/systick/*",
+                "../src/config/pic32cm_gc_cpro/system/**/*",
+                "../src/packs/PIC32CM5112GC00100_DFP/**/*",
+                "../src/third_party/tinyusb/src/class/cdc/serial/*",
+                "../src/third_party/tinyusb/src/osal/*",
+                "../src/config/pic32cm_gc_cpro/stdio/*",
+                "pic32cm_gc_cpro_tinyusb_pic32cm_gc_cpro/**/*",
+                "../src/config/pic32cm_gc_cpro/*{.c,.csv,.h,.ld}",
+                "../src/examples/device/cdc_msc/*.h",
+                "../src/examples/device/hid_composite/*.h",
+                "../src/third_party/tinyusb/src/class/audio/*.h",
+                "../src/third_party/tinyusb/src/class/bth/*.h",
+                "../src/third_party/tinyusb/src/class/cdc/*.h",
+                "../src/third_party/tinyusb/src/class/dfu/*.h",
+                "../src/third_party/tinyusb/src/class/hid/*.h",
+                "../src/third_party/tinyusb/src/class/midi/*.h",
+                "../src/third_party/tinyusb/src/class/msc/*.h",
+                "../src/third_party/tinyusb/src/class/net/*.h",
+                "../src/third_party/tinyusb/src/class/usbtmc/*.h",
+                "../src/third_party/tinyusb/src/class/vendor/*.h",
+                "../src/third_party/tinyusb/src/class/video/*.h",
+                "../src/third_party/tinyusb/src/common/*.h",
+                "../src/third_party/tinyusb/src/device/*.h",
+                "../src/third_party/tinyusb/src/host/*.h",
+                "../src/third_party/tinyusb/src/portable/microchip/pic32mz/*.h",
+                "../src/third_party/tinyusb/src/portable/microchip/samx7x/*.h",
+                "../src/third_party/tinyusb/src/*.h",
+                "../src/third_party/tinyusb/src/typec/*.h"
+            ],
+            "encoding": "ISO-8859-1"
+        },
+        {
+            "name": "device_cdc_msc files",
+            "files": [
+                "Makefile",
+                "../src/*",
+                "../src/config/pic32cm_gc_cpro/bsp/*",
+                "../src/config/pic32cm_gc_cpro/driver/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/clock/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/eic/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/evsys/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/nvic/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/pm/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/port/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/sercom/usart/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/systick/*",
+                "../src/config/pic32cm_gc_cpro/system/**/*",
+                "../src/examples/device/cdc_msc/*",
+                "../src/packs/PIC32CM5112GC00100_DFP/**/*",
+                "../src/third_party/tinyusb/src/class/audio/*",
+                "../src/third_party/tinyusb/src/class/bth/*",
+                "../src/third_party/tinyusb/src/class/cdc/**/*",
+                "../src/third_party/tinyusb/src/class/dfu/*",
+                "../src/third_party/tinyusb/src/class/hid/*",
+                "../src/third_party/tinyusb/src/class/msc/*",
+                "../src/third_party/tinyusb/src/class/net/*",
+                "../src/third_party/tinyusb/src/class/usbtmc/*",
+                "../src/third_party/tinyusb/src/class/vendor/*",
+                "../src/third_party/tinyusb/src/class/video/*",
+                "../src/third_party/tinyusb/src/common/*",
+                "../src/third_party/tinyusb/src/device/*",
+                "../src/third_party/tinyusb/src/host/*",
+                "../src/third_party/tinyusb/src/osal/*",
+                "../src/third_party/tinyusb/src/typec/*",
+                "../src/config/pic32cm_gc_cpro/stdio/*",
+                "../src/third_party/tinyusb/src/portable/microchip/*",
+                "pic32cm_gc_cpro_tinyusb_pic32cm_gc_cpro/**/*",
+                "../src/config/pic32cm_gc_cpro/*{.c,.csv,.h,.ld}",
+                "../src/third_party/tinyusb/src/class/midi/*{.c,.h}",
+                "../src/third_party/tinyusb/src/portable/microchip/pic32mz/*.h",
+                "../src/third_party/tinyusb/src/portable/microchip/samx7x/*.h",
+                "../src/third_party/tinyusb/src/*{.c,.h}"
+            ],
+            "encoding": "ISO-8859-1"
+        },
+        {
+            "name": "device_hid_composite files",
+            "files": [
+                "Makefile",
+                "../src/*",
+                "../src/config/pic32cm_gc_cpro/bsp/*",
+                "../src/config/pic32cm_gc_cpro/driver/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/clock/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/eic/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/evsys/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/nvic/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/pm/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/port/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/sercom/usart/*",
+                "../src/config/pic32cm_gc_cpro/peripheral/systick/*",
+                "../src/config/pic32cm_gc_cpro/system/**/*",
+                "../src/examples/device/hid_composite/*",
+                "../src/packs/PIC32CM5112GC00100_DFP/**/*",
+                "../src/third_party/tinyusb/src/class/audio/*",
+                "../src/third_party/tinyusb/src/class/bth/*",
+                "../src/third_party/tinyusb/src/class/cdc/**/*",
+                "../src/third_party/tinyusb/src/class/dfu/*",
+                "../src/third_party/tinyusb/src/class/hid/*",
+                "../src/third_party/tinyusb/src/class/msc/*",
+                "../src/third_party/tinyusb/src/class/net/*",
+                "../src/third_party/tinyusb/src/class/usbtmc/*",
+                "../src/third_party/tinyusb/src/class/vendor/*",
+                "../src/third_party/tinyusb/src/class/video/*",
+                "../src/third_party/tinyusb/src/common/*",
+                "../src/third_party/tinyusb/src/device/*",
+                "../src/third_party/tinyusb/src/host/*",
+                "../src/third_party/tinyusb/src/osal/*",
+                "../src/third_party/tinyusb/src/typec/*",
+                "../src/config/pic32cm_gc_cpro/stdio/*",
+                "../src/third_party/tinyusb/src/portable/microchip/*",
+                "pic32cm_gc_cpro_tinyusb_pic32cm_gc_cpro/**/*",
+                "../src/config/pic32cm_gc_cpro/*{.c,.csv,.h,.ld}",
+                "../src/third_party/tinyusb/src/class/midi/*{.c,.h}",
+                "../src/third_party/tinyusb/src/portable/microchip/pic32mz/*.h",
+                "../src/third_party/tinyusb/src/portable/microchip/samx7x/*.h",
+                "../src/third_party/tinyusb/src/*{.c,.h}"
+            ],
+            "encoding": "ISO-8859-1"
+        }
+    ]
+}

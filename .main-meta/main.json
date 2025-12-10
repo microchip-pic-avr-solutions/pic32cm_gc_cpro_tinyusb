@@ -1,0 +1,69 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.ide.project",
+    "content": {
+        "metaDataVersion": "1.3.0",
+        "name": "com.microchip.mcu.mplabx.project.pic32cm_gc_cpro_tinyusb",
+        "version": "1.0.0",
+        "displayName": "TinyUSB integration project with PIC32CM GC Microcontroller",
+        "projectName": "pic32cm_gc_cpro_tinyusb",
+        "shortDescription": "This repository contains the MPLAB® X or Extensions for VS Code project designed to showcase the TinyUSB examples on the PIC32CM GC family.",
+        "ide": {
+            "name": "MPLAB X",
+            "semverRange": "^6.25.0"
+        },
+        "compiler": [
+            {
+                "name": "XC32",
+                "semverRange": "^5.0.0"
+            }
+        ],
+        "dfp": {
+            "name": "PIC32CM-GC00_DFP",
+            "semverRange": "^1.0.27"
+        },
+        "configurator": {
+            "name": "MCC",
+            "semverRange": "^5.8.2"
+        },
+        "device": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.contentRef",
+            "content": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.device",
+                "name": "PIC32CM5112GC00100",
+                "versionRange": "*"
+            }
+        },
+        "author": "Microchip",
+        "peripherals": [
+            "CLK",
+            "GPIO",
+            "NVIC",
+            "EIC",
+            "NVMCTRL",
+            "SERCOM",
+            "Core Timer",
+            "stdio",
+            "USB"
+        ],
+        "keywords": [
+			"TinyUSB",
+            "USB",
+            "MCC",
+            "Curiosity Pro"
+        ],
+        "additionalData": {
+            "longDescription": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
+            }
+        }
+    }
+}

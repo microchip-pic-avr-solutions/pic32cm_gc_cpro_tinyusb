@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>pic32cm_gc_cpro_tinyusb</name>
+            <creation-uuid>74ddba87-de91-43e4-bd1f-f0b07480a423</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../src/third_party</sourceRootElem>
+                <sourceRootElem>../src/examples</sourceRootElem>
+                <sourceRootElem>../src/config/pic32cm_gc_cpro/bsp</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>pic32cm_gc_cpro</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>device_cdc_msc</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>device_hid_composite</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>

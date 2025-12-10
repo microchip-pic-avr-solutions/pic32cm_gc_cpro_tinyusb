@@ -1,0 +1,18 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# pic32cm_gc_cpro configuration
+CND_ARTIFACT_DIR_pic32cm_gc_cpro=dist/pic32cm_gc_cpro/production
+CND_ARTIFACT_NAME_pic32cm_gc_cpro=pic32cm_gc_cpro_tinyusb.X.production.hex
+CND_ARTIFACT_PATH_pic32cm_gc_cpro=dist/pic32cm_gc_cpro/production/pic32cm_gc_cpro_tinyusb.X.production.hex
+# device_cdc_msc configuration
+CND_ARTIFACT_DIR_device_cdc_msc=dist/device_cdc_msc/production
+CND_ARTIFACT_NAME_device_cdc_msc=pic32cm_gc_cpro_tinyusb.X.production.hex
+CND_ARTIFACT_PATH_device_cdc_msc=dist/device_cdc_msc/production/pic32cm_gc_cpro_tinyusb.X.production.hex
+# device_hid_composite configuration
+CND_ARTIFACT_DIR_device_hid_composite=dist/device_hid_composite/production
+CND_ARTIFACT_NAME_device_hid_composite=pic32cm_gc_cpro_tinyusb.X.production.hex
+CND_ARTIFACT_PATH_device_hid_composite=dist/device_hid_composite/production/pic32cm_gc_cpro_tinyusb.X.production.hex

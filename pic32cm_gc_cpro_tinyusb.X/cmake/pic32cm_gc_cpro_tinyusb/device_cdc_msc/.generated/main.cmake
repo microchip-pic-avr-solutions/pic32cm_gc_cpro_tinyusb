@@ -1,0 +1,60 @@
+# cmake files support debug production
+include("${CMAKE_CURRENT_LIST_DIR}/rule.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/file.cmake")
+
+set(pic32cm_gc_cpro_tinyusb_device_cdc_msc_library_list )
+
+# Handle files with suffix s, for group device_cdc_msc-XC32
+if(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_assemble)
+add_library(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assemble OBJECT ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_assemble})
+    pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assemble_rule(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assemble)
+    list(APPEND pic32cm_gc_cpro_tinyusb_device_cdc_msc_library_list "$<TARGET_OBJECTS:pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assemble>")
+endif()
+
+# Handle files with suffix S, for group device_cdc_msc-XC32
+if(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_assembleWithPreprocess)
+add_library(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assembleWithPreprocess OBJECT ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_assembleWithPreprocess})
+    pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assembleWithPreprocess_rule(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assembleWithPreprocess)
+    list(APPEND pic32cm_gc_cpro_tinyusb_device_cdc_msc_library_list "$<TARGET_OBJECTS:pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_assembleWithPreprocess>")
+endif()
+
+# Handle files with suffix [cC], for group device_cdc_msc-XC32
+if(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_compile)
+add_library(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile OBJECT ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_compile})
+    pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile_rule(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile)
+    list(APPEND pic32cm_gc_cpro_tinyusb_device_cdc_msc_library_list "$<TARGET_OBJECTS:pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile>")
+endif()
+
+# Handle files with suffix cpp, for group device_cdc_msc-XC32
+if(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_compile_cpp)
+add_library(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile_cpp OBJECT ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_compile_cpp})
+    pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile_cpp_rule(pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile_cpp)
+    list(APPEND pic32cm_gc_cpro_tinyusb_device_cdc_msc_library_list "$<TARGET_OBJECTS:pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_compile_cpp>")
+endif()
+
+
+add_executable(pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_library_list})
+
+set_target_properties(pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_output_dir})
+set_target_properties(pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s PROPERTIES OUTPUT_NAME "device_cdc_msc")
+set_target_properties(pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s PROPERTIES SUFFIX ".elf")
+         
+
+target_link_libraries(pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s PRIVATE ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_device_cdc_msc_XC32_FILE_TYPE_link})
+
+
+# Add the link options from the rule file.
+pic32cm_gc_cpro_tinyusb_device_cdc_msc_link_rule(pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s)
+
+# Add bin2hex target for converting built file to a .hex file.
+string(REGEX REPLACE [.]elf$ .hex pic32cm_gc_cpro_tinyusb_device_cdc_msc_image_name_hex ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_image_name})
+add_custom_target(pic32cm_gc_cpro_tinyusb_device_cdc_msc_Bin2Hex ALL
+    COMMAND ${MP_BIN2HEX} \"${pic32cm_gc_cpro_tinyusb_device_cdc_msc_output_dir}/${pic32cm_gc_cpro_tinyusb_device_cdc_msc_image_name}\"
+    BYPRODUCTS ${pic32cm_gc_cpro_tinyusb_device_cdc_msc_output_dir}/${pic32cm_gc_cpro_tinyusb_device_cdc_msc_image_name_hex}
+    COMMENT "Convert built file to .hex")
+add_dependencies(pic32cm_gc_cpro_tinyusb_device_cdc_msc_Bin2Hex pic32cm_gc_cpro_tinyusb_device_cdc_msc_image__Fj2mP7s)
+
+
+
+
+
